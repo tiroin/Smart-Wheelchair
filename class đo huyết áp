@@ -1,0 +1,93 @@
+class _BloodPressureMeasurementScreenState
+    extends State<BloodPressureMeasurementScreen> {
+  int huyetaptamthu = 0;
+  int huyetaptamtruong = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    // Calculate the blood pressure status based on your conditions
+    String bloodPressureStatus = '';
+
+    if (huyetaptamthu == 0 && huyetaptamtruong == 0) {
+      bloodPressureStatus = ''; // No text to display
+    } else if (huyetaptamthu < 60 || huyetaptamtruong < 90) {
+      bloodPressureStatus = 'Huyết áp thấp';
+    } else if (huyetaptamthu < 80 || huyetaptamtruong < 120) {
+      bloodPressureStatus = 'Huyết áp bình thường';
+    } else if (huyetaptamthu < 90 || huyetaptamtruong < 140) {
+      bloodPressureStatus = 'Huyết áp tiền cao';
+    } else if (huyetaptamthu < 100 || huyetaptamtruong < 190) {
+      bloodPressureStatus = 'Huyết áp cao';
+    }
+
+    // Determine the text color based on the blood pressure status
+    Color textColor = Colors.black; // Default color
+
+    if (bloodPressureStatus == 'Huyết áp thấp') {
+      textColor = Colors.green;
+    } else if (bloodPressureStatus == 'Huyết áp bình thường') {
+      textColor = Colors.blue;
+    } else if (bloodPressureStatus == 'Huyết áp tiền cao') {
+      textColor = Colors.pink;
+    } else if (bloodPressureStatus == 'Huyết áp cao') {
+      textColor = Colors.red;
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Blood Pressure Measurement'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Enter Systolic Pressure (Huyết áp tâm thu):',
+              style: TextStyle(fontSize: 20),
+            ),
+            TextFormField(
+              keyboardType: TextInputType.number,
+              onChanged: (value) {
+                setState(() {
+                  huyetaptamthu = int.tryParse(value) ?? 0;
+                });
+              },
+            ),
+            Text(
+              'Enter Diastolic Pressure (Huyết áp tâm trương):',
+              style: TextStyle(fontSize: 20),
+            ),
+            TextFormField(
+              keyboardType: TextInputType.number,
+              onChanged: (value) {
+                setState(() {
+                  huyetaptamtruong = int.tryParse(value) ?? 0;
+                });
+              },
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Implement blood pressure calculation logic here
+                // For example, you can calculate and display the result based on huyetaptamthu and huyetaptamtruong values.
+              },
+              child: Text('Calculate Blood Pressure'),
+            ),
+            // Display the blood pressure status text
+            Text(
+              bloodPressureStatus,
+              style: TextStyle(fontSize: 20, color: textColor),
+            ),
+            Text(
+              'Huyết áp tâm thu: $huyetaptamthu',
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              'Huyết áp tâm trương: $huyetaptamtruong',
+              style: TextStyle(fontSize: 20),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
