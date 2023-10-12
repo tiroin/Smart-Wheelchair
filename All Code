@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'include.dart';
 void main() {
   runApp(HealthCareApp());
 }
@@ -16,6 +16,7 @@ class HealthCareApp extends StatelessWidget {
         '/healthFunctions': (context) => HealthFunctionsScreen(),
         '/BloodPressureMeasurement' :(context)=>BloodPressureMeasurementScreen(),
         '/HeartRateMeasurement': (context) => HeartRateMeasurementScreen(),
+        '/ggmap':(context)=>HomeScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
@@ -144,9 +145,10 @@ class HealthFunctionsScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                // Add other health function logic here
+                // Navigate to the Smart Location screen
+                Navigator.pushNamed(context, '/ggmap');
               },
-              child: Text('Other Function 2'),
+              child: Text('Định vị thông minh'),
             ),
           ],
         ),
@@ -317,3 +319,4 @@ class _HeartRateMeasurementScreenState extends State<HeartRateMeasurementScreen>
     );
   }
 }
+
