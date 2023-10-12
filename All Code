@@ -9,6 +9,10 @@ class HealthCareApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Smart HealthCare',
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => StartScreen(),
@@ -27,22 +31,33 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ROBOT healthcare'),
-      ),
+      backgroundColor: Colors.deepPurple,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Robot chăm sóc sức khỏe xin chào',
-              style: TextStyle(fontSize: 20),
+              'ROBOT CHĂM SÓC SỨC KHỎE XIN CHÀO',
+              style: TextStyle(fontSize: 24, color: Colors.white),
             ),
+            Text(
+              'Smart HealthCare',
+              style: TextStyle(fontSize: 32, color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/ageEntry');
               },
-              child: Text('Bắt đầu'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.amber,
+                onPrimary: Colors.black,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Text('Bắt đầu', style: TextStyle(fontSize: 18)),
             ),
           ],
         ),
