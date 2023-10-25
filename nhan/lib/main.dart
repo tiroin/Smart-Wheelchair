@@ -10,6 +10,7 @@ import 'pages/HeartRate.dart';
 import 'pages/BloodPressure.dart';
 import 'pages/login.dart';
 import 'pages/information.dart';
+import 'pages/dangki.dart';
 
 void main() {
   runApp(HealthCareApp());
