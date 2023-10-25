@@ -11,6 +11,7 @@ import 'pages/BloodPressure.dart';
 import 'pages/login.dart';
 import 'pages/information.dart';
 import 'pages/dangki.dart';
+import 'pages/xelang.dart';
 
 void main() {
   runApp(HealthCareApp());
@@ -34,6 +35,8 @@ class HealthCareApp extends StatelessWidget {
         '/HeartRateMeasurement': (context) => HeartRateMeasurementScreen(),
         '/Login': (context) => LoginActivity(),
         '/Thongtin': (context) => thongtin(),
+        '/Dangki': (context) => Dangki(),
+        '/xelang' : (context) => xelang(),
         // '/ggmap':(context)=>HomeScreen(),
       },
       debugShowCheckedModeBanner: false,
