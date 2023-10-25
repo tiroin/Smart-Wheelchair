@@ -33,14 +33,15 @@ class HealthCareApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => StartScreen(),
-        '/ageEntry': (context) => AgeEntryScreen(),
+        '/Dangky': (context) =>RegistrationScreen(),
         '/healthFunctions': (context) => HealthFunctionsScreen(),
         '/BloodPressureMeasurement': (context) => BloodPressureMeasurementScreen(),
         '/HeartRateMeasurement': (context) => HeartRateMeasurementScreen(),
-        '/Login': (context) => LoginActivity(),
+        '/Login': (context) => LoginScreen(),
         '/Thongtin': (context) => thongtin(),
         '/ggmap':(context)=>HomeScreen(),  // Add HomeScreen to the routes
         '/displayUserData': (context) => DisplayUserDataScreen(),
+
       },
       debugShowCheckedModeBanner: false,
     );
